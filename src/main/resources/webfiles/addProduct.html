@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store App</title>
+</head>
+<body>
+ <h1>Add Product</h1>
+  <form action="add" method="POST" th:object="${product}">
+      Product Number: <input type="text" th:field="*{productNumber}"><br>
+      <span  class="error" th:if="${#fields.hasErrors('productNumber')}" th:errors="*{productNumber}"></span><br><br>
+      Name: <input type="text" th:field="*{name}"><br>
+      <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br><br>
+      Price: <input type="number" th:field="*{price}"><br>
+      <span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span><br><br>
+      <input type="submit" value="Save">
+  </form>
+</body>
+</html>

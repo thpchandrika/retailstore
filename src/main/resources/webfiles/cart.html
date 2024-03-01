@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store App</title>
+</head>
+<body>
+    <h1>List of Products</h1>
+    <table border="1">
+        <thead>
+          <tr>
+               <th>Quantity</th>
+               <th>Product Number</th>
+               <th>Name</th>
+               <th>Price</th>
+               <th>Total</th>
+               <th></th>
+           </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cart : ${cartList}">
+            <td th:text="${cart.productQuantity}"></td>
+            <td th:text="${cart.productNumber}"></td>
+            <td th:text="${cart.productName}"></td>
+            <td th:text="${cart.productPrice}"></td>
+            <td>
+                <form action="/products/removeproductfromcart" method="POST">
+                    <button type="submit" name="productNumber" th:value="${cart.productNumber}">Remove</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <h1>Total:</h1>
+        <!-- Display the sum of productPrice -->
+        <h1 th:text="${totalPrice}"></h1>
+    </div>
+   <form action="/products" method="GET">
+       <input type="submit" value="Show Products">
+   </form>
+</body>
+</html>

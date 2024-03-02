@@ -59,6 +59,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>springbootmvc-retailstore-img</finalName>
 	</build>
 
 </project>

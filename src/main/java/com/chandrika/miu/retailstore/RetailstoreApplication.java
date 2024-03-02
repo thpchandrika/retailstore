@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RetailstoreApplication {
 
 	public static void main(String[] args) {
+		System.out.println("Running springboot application");
 		SpringApplication.run(RetailstoreApplication.class, args);
 	}
 
